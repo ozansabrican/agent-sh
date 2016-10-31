@@ -2,7 +2,11 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
+  View,
+  Image,
+  Navigator,
   TouchableHighlight,
+  NavigationExperimental,
   PixelRatio,
   ScrollView,
 } from 'react-native';
@@ -22,7 +26,7 @@ class TappableRow extends React.Component {
   }
 }
 
-export default class HomeScene extends React.Component {
+export default class InfoScene extends React.Component {
   render() {
     return (
       <ScrollView style={styles.scrollView}>
@@ -30,11 +34,11 @@ export default class HomeScene extends React.Component {
           Route: {this.props.route.key}
         </Text>
         <TappableRow
-          text="Tap me to load the next scene"
+          text="Other Tap me to load the next scene"
           onPress={this.props.onPushRoute}
         />
         <TappableRow
-          text="Tap me to go back"
+          text="Other Tap me to go back"
           onPress={this.props.onPopRoute}
         />
       </ScrollView>
@@ -42,8 +46,10 @@ export default class HomeScene extends React.Component {
   }
 }
 
-
 const styles = StyleSheet.create({
+  navigator: {
+    flex: 1,
+  },
   scrollView: {
     marginTop: 64
   },
