@@ -2,12 +2,18 @@ import React from 'react';
 import {
   StyleSheet,
   NavigationExperimental,
+  View,
+  Text,
+  UIExplorerStateTitleMap,
+  TouchableHighlight,
 } from 'react-native';
+
 import HomeScene from './components/scenes/HomeScene';
 import InfoScene from './components/scenes/InfoScene';
 
 const {
   CardStack: NavigationCardStack,
+  Header: NavigationHeader,
 } = NavigationExperimental;
 
 export default class Navigator extends React.Component {
@@ -30,6 +36,36 @@ export default class Navigator extends React.Component {
         navigationState={this.props.navigationState}
         renderScene={this._renderScene}
         style={styles.navigator}
+        renderHeader={(props) => {
+          return (
+            <NavigationHeader
+              style={{backgroundColor: 'yellow'}}
+              {...props}
+              onNavigateBack={this._onPopRoute}
+              renderTitleComponent={(props) => {
+                return (
+                  <NavigationHeader.Title  >
+                    <Text style={{color: 'red'}}>
+                      {props.scene.route.key}
+                    </Text>
+                  </NavigationHeader.Title>
+                )
+              }}
+              renderLeftComponent={props => {
+                return (
+                  props.navigationState.index === 0 ? null :
+                     <TouchableHighlight
+                        style={styles.backButtonContainer}
+                        onPress={this._onPopRoute}>
+                      <Text style={styles.backButtonTitle}>
+                        Back
+                      </Text>
+                    </TouchableHighlight>
+                )
+              }}
+            />
+          )
+        }}
       />
     );
   }
@@ -65,4 +101,18 @@ const styles = StyleSheet.create({
   navigator: {
     flex: 1,
   },
+  navbar: {
+    height: 50,
+    alignSelf: 'stretch',
+    backgroundColor:'#0D47A1',
+    borderBottomColor: '#48209A',
+    borderBottomWidth: 1
+  },
+  backButtonContainer: {
+    flex: 1,
+    flexDirection: 'row'
+  },
+  backButtonTitle: {
+    alignSelf: 'center',
+  }
 });
