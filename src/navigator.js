@@ -37,7 +37,7 @@ export default class Navigator extends React.Component {
         renderScene={this._renderScene}
         style={styles.navigator}
         renderHeader={(props) => {
-          return (
+          return (props.navigationState.index === 0 ? null :
             <NavigationHeader
               style={{backgroundColor: 'yellow'}}
               {...props}
