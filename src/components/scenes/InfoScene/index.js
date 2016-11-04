@@ -10,6 +10,7 @@ import {
   PixelRatio,
   ScrollView,
 } from 'react-native';
+import Row, { TYPE } from '../../atoms/Row';
 
 class TappableRow extends React.Component {
   render() {
@@ -30,16 +31,25 @@ export default class InfoScene extends React.Component {
   render() {
     return (
       <ScrollView style={styles.scrollView}>
-        <Text style={styles.row}>
-          Route: {this.props.route.key}
-        </Text>
-        <TappableRow
-          text="Other Tap me to load the next scene"
-          onPress={this.props.onPushRoute}
+        <Row
+          headline={`Who Am I?`}
+          subline={`Little bit about me`}
+          type={TYPE.PERSONAL}
         />
-        <TappableRow
-          text="Other Tap me to go back"
-          onPress={this.props.onPopRoute}
+        <Row
+          headline={`Where I've called home?`}
+          subline={`Places I've lived in`}
+          type={TYPE.PLACES}
+        />
+        <Row
+          headline={`Where I've Called in Sick`}
+          subline={`Work work work work`}
+          type={TYPE.WORK}
+        />
+        <Row
+          headline={`What I eat, sleep, and breathe`}
+          subline={`Things I am passionate about`}
+          type={TYPE.PASSION}
         />
       </ScrollView>
     );
@@ -51,19 +61,54 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollView: {
-    marginTop: 64
+    paddingTop: 64,
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: '#327389',
   },
   row: {
-    padding: 15,
-    backgroundColor: 'white',
-    borderBottomWidth: 1 / PixelRatio.get(),
-    borderBottomColor: '#CDCDCD',
+    backgroundColor: '#B1C6C9',
+    borderWidth: 1 / PixelRatio.get(),
+    borderRadius: 10,
+    borderColor: '#CDCDCD',
+    flexDirection: 'row',
+    height: 90,
+  },
+  leftContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    paddingTop: 5,
+    alignItems: 'center',
+  },
+  middleContainer: {
+    flex: 6,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingLeft: 10,
+  },
+  arrowContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingTop: 10,
+    paddingRight: 15,
+  },
+  image: {
+    width: 20,
+    height: 15,
+  },
+  leftImage: {
+    width: 40,
+    height: 40,
   },
   rowText: {
     fontSize: 17,
   },
-  buttonText: {
+  copy: {
     fontSize: 17,
     fontWeight: '500',
   },
+  copySmall: {
+    fontSize: 14,
+  }
 });
