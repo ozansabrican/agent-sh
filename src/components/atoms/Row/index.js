@@ -24,9 +24,9 @@ export default class Row extends React.Component {
             <View style={styles.leftContainer}>
             <Text style={styles.buttonText}>
                 <Image
-                style={styles.leftImage}
-                // this should be improved
-                source={type}
+                  style={styles.leftImage}
+                  // this should be improved
+                  source={type}
                 />
             </Text>
             </View>

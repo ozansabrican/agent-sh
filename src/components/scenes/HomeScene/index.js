@@ -24,9 +24,16 @@ class TappableRow extends React.Component {
         );
     }
 }
-
+const route = {
+    type: 'push',
+    route: {
+        key: 'about',
+        title: 'About'
+    }
+}
 export default class HomeScene extends React.Component {
     render() {
+        const {_handleNavigate} = this.props;
         return (
             <View style={styles.view}>
                 <StatusBar hidden={true} />
@@ -49,10 +56,10 @@ export default class HomeScene extends React.Component {
                     <RoundButton
                         text={`Let's start!`}
                         underlayColor='#50433B'
-                        onPress={this.props.onPushRoute}
+                        onPress={() => _handleNavigate(route)}
                         buttonStyle={styles.roundButton}
                         textStyle={styles.buttonText}
-                    />
+                        />
                     <View style={{ flex: 1 }} />
                 </View>
             </View>
