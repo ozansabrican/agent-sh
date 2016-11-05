@@ -5,48 +5,52 @@ import {
   View,
   Image,
   PixelRatio,
+  TouchableHighlight
 } from 'react-native';
 export const TYPE = {
-    PERSONAL: require(`../../../assets/sasa.png`),
-    PLACES: require(`../../../assets/places.png`),
-    WORK: require(`../../../assets/coding.png`),
-    PASSION: require(`../../../assets/fire.png`),
+  PERSONAL: require(`../../../assets/sasa.png`),
+  PLACES: require(`../../../assets/places.png`),
+  WORK: require(`../../../assets/coding.png`),
+  PASSION: require(`../../../assets/fire.png`),
 };
 
 export default class Row extends React.Component {
   render() {
     const { headline, subline, type} = this.props;
     return (
+      <TouchableHighlight
+        onPress={this.props.onPress}>
         <View
-            style={styles.row}
-            onPress={this.props.onPushRoute}
-        >
-            <View style={styles.leftContainer}>
+          style={styles.row}
+          onPress={this.props.onPushRoute}
+          >
+          <View style={styles.leftContainer}>
             <Text style={styles.buttonText}>
-                <Image
-                  style={styles.leftImage}
-                  // this should be improved
-                  source={type}
+              <Image
+                style={styles.leftImage}
+                // this should be improved
+                source={type}
                 />
             </Text>
-            </View>
-            <View style={styles.middleContainer}>
+          </View>
+          <View style={styles.middleContainer}>
             <Text style={styles.copy}>
-                {headline}
+              {headline}
             </Text>
             <Text style={styles.copySmall}>
-                {subline}
+              {subline}
             </Text>
-            </View>
-            <View style={styles.arrowContainer}>
+          </View>
+          <View style={styles.arrowContainer}>
             <Text style={styles.buttonText}>
-                <Image
+              <Image
                 style={styles.image}
                 source={require('../../../assets/next.png')}
                 />
             </Text>
-            </View>
+          </View>
         </View>
+      </TouchableHighlight>
     );
   }
 }

@@ -9,21 +9,8 @@ import {
     Image,
 } from 'react-native';
 import RoundButton from '../../atoms/RoundButton'
+import RoundImage from '../../atoms/RoundImage'
 
-class TappableRow extends React.Component {
-    render() {
-        return (
-            <TouchableHighlight
-                style={styles.row}
-                underlayColor="#D0D0D0"
-                onPress={this.props.onPress}>
-                <Text style={styles.buttonText}>
-                    {this.props.text}
-                </Text>
-            </TouchableHighlight>
-        );
-    }
-}
 const route = {
     type: 'push',
     route: {
@@ -31,6 +18,7 @@ const route = {
         title: 'Info'
     }
 }
+
 export default class HomeScene extends React.Component {
     render() {
         const {_handleNavigate} = this.props;
@@ -39,17 +27,16 @@ export default class HomeScene extends React.Component {
                 <StatusBar hidden={true} />
                 <View style={styles.headlineContainer}>
                     <Text style={styles.headline}>
-                        Welcome to this awesome app
-            </Text>
+                        Hello!
+                    </Text>
                 </View>
-                <View style={styles.imageContainer}>
-                    <Text>
-                        This is me =>
-            </Text>
-                    <Image
-                        style={styles.image}
-                        source={require('../../../assets/sabrican.jpg')}
-                        />
+                <View style={styles.container}>
+                    <Text style={styles.description}>
+                        Welcome to my first ExponentJS App! This app is all about me.
+                    </Text>
+                    <Text style={styles.description}>
+                        I hope you all like it!
+                    </Text>
                 </View>
                 <View style={styles.buttonContainer}>
                     <View style={{ flex: 1 }} />
@@ -59,7 +46,7 @@ export default class HomeScene extends React.Component {
                         onPress={() => _handleNavigate(route)}
                         buttonStyle={styles.roundButton}
                         textStyle={styles.buttonText}
-                        />
+                    />
                     <View style={{ flex: 1 }} />
                 </View>
             </View>
@@ -72,7 +59,6 @@ const styles = StyleSheet.create({
         flex: 10,
         backgroundColor: '#327389',
         justifyContent: 'center',
-        // backgroundColor: '#FAE0AF',
     },
     headlineContainer: {
         flex: 3,
@@ -81,12 +67,18 @@ const styles = StyleSheet.create({
     },
     headline: {
         color: 'white',
-        fontSize: 22,
+        fontSize: 30,
         marginBottom: 20,
     },
-    imageContainer: {
+    description: {
+        color: 'white',
+        width: 300,
+        textAlign: 'center',
+        fontSize: 22,
+    },
+    container: {
         flex: 5,
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
     },

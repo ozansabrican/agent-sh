@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import HomeScene from './scenes/HomeScene'
 import InfoScene from './scenes/InfoScene'
+import PersonalScene from './scenes/PersonalScene'
+import WorkScene from './scenes/WorkScene'
+import PassionScene from './scenes/PassionScene'
+import PlacesScene from './scenes/PlacesScene'
 import Header from './molecules/Header'
 
 import {
@@ -31,7 +35,44 @@ class NavRoot extends Component {
               _handleNavigate={this._handleNavigate.bind(this)} />
     }
     if (route.key === 'info') {
-     return <InfoScene _goBack={this._handleBackAction.bind(this)} />
+     return (
+         <InfoScene
+            _goBack={this._handleBackAction.bind(this)}
+            _handleNavigate={this._handleNavigate.bind(this)}
+         />
+     )
+    }
+    if (route.key === 'personal') {
+     return (
+         <PersonalScene
+            _goBack={this._handleBackAction.bind(this)}
+            _handleNavigate={this._handleNavigate.bind(this)}
+         />
+     )
+    }
+    if (route.key === 'places') {
+     return (
+         <PlacesScene
+            _goBack={this._handleBackAction.bind(this)}
+            _handleNavigate={this._handleNavigate.bind(this)}
+         />
+     )
+    }
+    if (route.key === 'work') {
+     return (
+         <WorkScene
+            _goBack={this._handleBackAction.bind(this)}
+            _handleNavigate={this._handleNavigate.bind(this)}
+         />
+     )
+    }
+    if (route.key === 'passion') {
+     return (
+         <PassionScene
+            _goBack={this._handleBackAction.bind(this)}
+            _handleNavigate={this._handleNavigate.bind(this)}
+         />
+     )
     }
   }
   _handleBackAction () {
