@@ -30,7 +30,7 @@ class NavRoot extends Component {
      return <HomeScene
               _handleNavigate={this._handleNavigate.bind(this)} />
     }
-    if (route.key === 'about') {
+    if (route.key === 'info') {
      return <InfoScene _goBack={this._handleBackAction.bind(this)} />
     }
   }

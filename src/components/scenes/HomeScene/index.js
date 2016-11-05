@@ -27,8 +27,8 @@ class TappableRow extends React.Component {
 const route = {
     type: 'push',
     route: {
-        key: 'about',
-        title: 'About'
+        key: 'info',
+        title: 'Info'
     }
 }
 export default class HomeScene extends React.Component {
